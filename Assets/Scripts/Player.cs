@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        print("Acordou");
     }
 
     void FixedUpdate()
