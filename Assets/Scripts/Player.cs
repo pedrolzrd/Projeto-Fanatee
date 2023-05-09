@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     //Variaveis
     [SerializeField]
     float speed;
+    [HideInInspector]
+    public int id;
 
     //Objetos/Componentes
     Rigidbody rb;
@@ -14,7 +16,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        print("acordou suiAHBSHAUYVDAHGV DHGAS DHG AS");
+        print(id);
+    }
+
+    private void Start()
+    {
+        id = Random.Range(1, 5);
     }
 
     void FixedUpdate()
