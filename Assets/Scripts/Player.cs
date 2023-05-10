@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         id = Random.Range(1, 5);
+        print("oi");
     }
 
     void FixedUpdate()
