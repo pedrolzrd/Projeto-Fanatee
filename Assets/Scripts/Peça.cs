@@ -31,6 +31,7 @@ public class Peça : MonoBehaviour
         if (other.CompareTag("Player") && player.GetComponent<Player>().id == id)
         {
             Destroy(gameObject);
+            print(id);
             spawner.GetComponent<Spawner>().spawned--;
         }
     }

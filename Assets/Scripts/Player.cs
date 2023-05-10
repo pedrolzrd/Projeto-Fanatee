@@ -16,12 +16,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        print(id);
     }
 
     private void Start()
     {
         id = Random.Range(1, 5);
+        print(id);
     }
 
     void FixedUpdate()
