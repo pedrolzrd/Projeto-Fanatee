@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9070413458369069668}
   - component: {fileID: 7650955223967650786}
   - component: {fileID: 8525290036904182332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "Pe\xE7aTeste"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,3 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f1e949ccfec804cad9b6d06fd25f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToDestroy: 5
+  timeToColect: 3
+  pieceColected: 0

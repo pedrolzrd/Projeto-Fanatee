@@ -19,6 +19,8 @@ public class Spawner : MonoBehaviour
     //Objetos/Componentes
     [SerializeField]
     GameObject peca;
+    [SerializeField]
+    LayerMask col; //layer para detectar onde a peça não pode spawnar
 
     private void Update()
     {
@@ -38,12 +40,21 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(minSpawnValue, maxSpawnValue), 1, Random.Range(minSpawnValue, maxSpawnValue)); 
+        Vector3 spawnPos = new Vector3(Random.Range(minSpawnValue, maxSpawnValue), 1, Random.Range(minSpawnValue, maxSpawnValue));
+
+        //Checagem se já tem um objeto no lugar onde deveria spawnar
+        Collider[] collider = Physics.OverlapSphere(spawnPos, 1, col);
+        while(collider.Length > 0)
+        {
+            //se houver, gera outra posição
+            spawnPos = new Vector3(Random.Range(minSpawnValue, maxSpawnValue), 1, Random.Range(minSpawnValue, maxSpawnValue));
+
+            yield return null;
+        }
 
         Instantiate(peca, spawnPos, Quaternion.identity);
         spawned++;
 
-        yield return null;
     }
 
     private void OnDrawGizmos()
