@@ -12,6 +12,6 @@ public class CountPoints : MonoBehaviour
 
     private void Update()
     {
-        textPoints.text = points.ToString();
+        textPoints.text = points.ToString() + "/16";
     }
 }
