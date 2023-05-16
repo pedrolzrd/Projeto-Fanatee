@@ -7,9 +7,11 @@ public class CountdownTimer : MonoBehaviour
 {
 
     public Text countDownText;
+    public GameObject countDownUi;
     [SerializeField]
-    private float totalTime = 300f; // 5 minutos em segundos
+    private float totalTime = 300f; // 300f 5 minutos em segundos
     private float timeLeft;
+    
 
 
     // Start is called before the first frame update
@@ -32,6 +34,7 @@ public class CountdownTimer : MonoBehaviour
 
         if(timeLeft <= 0f)
         {
+            countDownUi.SetActive(true);
             Debug.Log("Fim da contagem");
             enabled = false;
         }
