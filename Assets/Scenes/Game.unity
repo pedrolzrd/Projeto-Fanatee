@@ -38741,7 +38741,7 @@ GameObject:
   - component: {fileID: 33062216949715238}
   - component: {fileID: 23076044122679982}
   m_Layer: 6
-  m_Name: rpgpp_lt_sack_01
+  m_Name: Sack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50141,8 +50141,8 @@ GameObject:
   - component: {fileID: 5147779757632292596}
   - component: {fileID: 5117798043206839974}
   - component: {fileID: 5129565208856166094}
-  m_Layer: 0
-  m_Name: rpgpp_lt_jug_01
+  m_Layer: 6
+  m_Name: Jug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
