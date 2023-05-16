@@ -31,7 +31,6 @@ public class Spawner : MonoBehaviour
         {
             if (timeCount > nextSpawn)
             {
-                Debug.Log("Spawn");
                 StartCoroutine(Spawn());
                 timeCount = 0;
             }
@@ -42,7 +41,6 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        Debug.Log("Spawn2");
         Vector3 spawnPos = new Vector3(Random.Range(minSpawnValue, maxSpawnValue), 1, Random.Range(minSpawnValue, maxSpawnValue));
 
         //Checagem se já tem um objeto no lugar onde deveria spawnar

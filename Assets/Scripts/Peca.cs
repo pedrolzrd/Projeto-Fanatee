@@ -5,7 +5,7 @@ using UnityEngine;
 public class Peca : MonoBehaviour
 {
     //Variaveis
-    int id;
+    public int id;
     [SerializeField]
     float timeToDestroy;
     [SerializeField]
@@ -15,20 +15,44 @@ public class Peca : MonoBehaviour
     //Objetos/Componentes
     GameObject spawner;
     GameObject player;
+    GameObject operador;
     IEnumerator destroyCoroutine;
 
     private void Start()
     {
         destroyCoroutine = destroyLifetime();
-        id = Random.Range(1, 5);
+        id = Random.Range(0, 5);
         spawner = GameObject.FindGameObjectWithTag("Spawner");
         player = GameObject.FindGameObjectWithTag("Player");
+        operador = GameObject.FindGameObjectWithTag("Operator");
         StartCoroutine(destroyCoroutine);
     }
 
     private void Update()
     {
-        if(id == player.GetComponent<SimpleSampleCharacterControl>().id) 
+        if(id == 0)
+        {
+            this.GetComponent<MeshRenderer>().material.color = Color.red;
+        }
+        else if(id == 1)
+        {
+            this.GetComponent<MeshRenderer>().material.color = Color.green;
+        }
+        else if(id == 2)
+        {
+            this.GetComponent<MeshRenderer>().material.color = Color.cyan;
+        }
+        else if(id == 3)
+        {
+            this.GetComponent<MeshRenderer>().material.color = Color.black;
+        }
+        else if(id == 4)
+        {
+            this.GetComponent<MeshRenderer>().material.color = Color.white;
+        } 
+        //muda a cor da bolinha de acordo com o numero dela, não tá muito inteligente mas funcionou bem
+
+        if (id == operador.GetComponent<OperationsGenerator>().c)
         {
             this.GetComponent<MeshRenderer>().material.color = Color.blue;
         }
@@ -41,11 +65,11 @@ public class Peca : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && player.GetComponent<SimpleSampleCharacterControl>().id == id)
+        if (other.CompareTag("Player"))
         {
             colected = true;
             StopCoroutine(destroyCoroutine);
-            StartCoroutine(colect());
+            //StartCoroutine(colect());
         }
     }
 
