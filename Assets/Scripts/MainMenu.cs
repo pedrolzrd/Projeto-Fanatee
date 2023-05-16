@@ -8,9 +8,6 @@ public class MainMenu : MonoBehaviour
 {
 
     public GameObject gameModeUi;
-    
-
-
 
     public void openPopup()
     {
@@ -26,6 +23,10 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void backToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void QuitGame()
     {
         print("quit game");
