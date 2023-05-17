@@ -12,6 +12,8 @@ public class MathScript : MonoBehaviour
     string[] operations = { "2 + 2", "3 + 3", "2 x 4"};
     int[] results = { 4, 6, 8 };
     GameObject player;
+    [SerializeField]
+    GameObject lanterna;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,8 @@ public class MathScript : MonoBehaviour
             if (number.value == results[actualOperationIndex])
             {
                 print("acertou");
-                actualOperationIndex++;
+                StartCoroutine(changeCoinColorGreen());
+               actualOperationIndex++;
                 correctAnwsers++;
                 correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
                 if (actualOperationIndex < operations.Length)
@@ -59,10 +62,26 @@ public class MathScript : MonoBehaviour
             else
             {
                 print("erro");
+                StartCoroutine(changeCoinColorRed());
             }
         }
 
         
         
+    }
+
+
+    IEnumerator changeCoinColorGreen()
+    {
+        lanterna.GetComponent<MeshRenderer>().material.color = Color.green;
+        yield return new WaitForSeconds(1f);
+        lanterna.GetComponent<MeshRenderer>().material.color = Color.white;
+    }
+
+    IEnumerator changeCoinColorRed()
+    {
+        lanterna.GetComponent<MeshRenderer>().material.color = Color.red;
+        yield return new WaitForSeconds(1f);
+        lanterna.GetComponent<MeshRenderer>().material.color = Color.white;
     }
 }
