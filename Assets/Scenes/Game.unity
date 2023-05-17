@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27305,7 +27305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513309886}
   m_LocalRotation: {x: -2.3283084e-10, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2500003, y: 0.42999998, z: 0}
+  m_LocalPosition: {x: -0.297, y: 0.43, z: -0.217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27345,10 +27345,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8194273
+  m_Radius: 0.6376128
   m_Height: 3.0914352
   m_Direction: 1
-  m_Center: {x: 0.31942734, y: 1.0457182, z: 5.3488136e-10}
+  m_Center: {x: 0.31942734, y: 1.0457183, z: 0.18181452}
 --- !u!54 &1513309890
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53991,7 +53991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7fb1825bcdd0947b61565bdc3b2744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textPoints: {fileID: 0}
   points: 0
 --- !u!4 &5872070136927771547
 Transform:

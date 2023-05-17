@@ -9,7 +9,7 @@ public class MathScript : MonoBehaviour
     public Text correctAwnsersText;
     private int correctAnwsers;
     private int actualOperationIndex;
-    string[] operations = { "2 + 2", "3 + 3", "2 x 4" };
+    string[] operations = { "2 + 2", "3 + 3", "2 x 4"};
     int[] results = { 4, 6, 8 };
     GameObject player;
 
@@ -43,9 +43,17 @@ public class MathScript : MonoBehaviour
             {
                 print("acertou");
                 actualOperationIndex++;
-                operationText.text = string.Format(operations[actualOperationIndex]);
-                 correctAnwsers++;
-            correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
+                correctAnwsers++;
+                correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
+                if (actualOperationIndex < operations.Length)
+                {
+                    operationText.text = string.Format(operations[actualOperationIndex]);
+                }
+                else
+                {
+                    print("ganhou!");
+                }
+                
 
             }
             else
