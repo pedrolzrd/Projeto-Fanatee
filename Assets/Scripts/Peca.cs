@@ -52,10 +52,12 @@ public class Peca : MonoBehaviour
         } 
         //muda a cor da bolinha de acordo com o numero dela, não tá muito inteligente mas funcionou bem
 
+        /*
         if (id == operador.GetComponent<OperationsGenerator>().c)
         {
             this.GetComponent<MeshRenderer>().material.color = Color.blue;
         }
+        */
 
         if(colected == true)
         {
@@ -73,6 +75,7 @@ public class Peca : MonoBehaviour
         }
     }
 
+    /*
     IEnumerator colect()
     {
         yield return new WaitForSeconds(timeToColect);
@@ -81,6 +84,7 @@ public class Peca : MonoBehaviour
         print(player.GetComponent<CountPoints>().points);
         Destroy(gameObject, 0.1f);
     }
+    */
 
     IEnumerator destroyLifetime()
     {

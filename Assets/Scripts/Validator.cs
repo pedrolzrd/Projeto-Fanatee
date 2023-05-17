@@ -11,7 +11,7 @@ public class Validator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Piece"))
+        if (other.CompareTag("Number"))
         {
             print("colidiu");
             /*

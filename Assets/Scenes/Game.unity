@@ -2179,7 +2179,12 @@ MonoBehaviour:
   minSpawnValue: -10
   maxSpawned: 14
   spawned: 0
-  peca: {fileID: 2959164463175392452, guid: 8cd7685cd8b6d8746aff3a100626a7c0, type: 3}
+  numbers:
+  - {fileID: 1699819717778252487, guid: b594fd3b86a8d9644a1770d5fb39da8a, type: 3}
+  - {fileID: 6409698829565146893, guid: 1d1317f412ca8f44fa2f0f6e4c7b88ed, type: 3}
+  - {fileID: 6016528926626745007, guid: 8b39e000fe81c554c944998bb0a08d1b, type: 3}
+  - {fileID: 3127606332494882287, guid: 1ce1fe0b06040224cb7d8d8139ed5270, type: 3}
+  - {fileID: 6710045825839736326, guid: aabf7ece95ed482419cdbf02f49fba85, type: 3}
   col:
     serializedVersion: 2
     m_Bits: 64
@@ -2190,14 +2195,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113375281}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.26, y: 1.35, z: 3.41}
   m_LocalScale: {x: 26.25, y: 8.72, z: 7.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &114354792
 GameObject:
   m_ObjectHideFlags: 0
