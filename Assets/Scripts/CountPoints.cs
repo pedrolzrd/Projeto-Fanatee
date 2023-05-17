@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class CountPoints : MonoBehaviour
 {
     [SerializeField]
-    Text textPoints;
+    //Text textPoints;
 
     public int points;
 
     private void Update()
     {
-        textPoints.text = points.ToString() + "/16";
+       // textPoints.text = points.ToString() + "/16";
     }
 }
