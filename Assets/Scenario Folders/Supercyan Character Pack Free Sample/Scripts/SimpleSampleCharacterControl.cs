@@ -111,7 +111,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private void Update()
     {
-        if (!m_jumpInput && Input.GetKey(KeyCode.Space))
+
+        if (!m_jumpInput && Input.GetButtonDown("Jump"))
         {
             m_jumpInput = true;
         }
