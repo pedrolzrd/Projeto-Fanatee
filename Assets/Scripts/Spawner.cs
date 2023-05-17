@@ -9,8 +9,12 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     float nextSpawn;
     float timeCount;
+
     [SerializeField]
-    int maxSpawnValue, minSpawnValue;
+    int maxSpawnValueX, minSpawnValueX;
+
+    [SerializeField]
+    int maxSpawnValueZ, minSpawnValueZ;
     [SerializeField]
     int maxSpawned; //Valor maximo de bolinhas spawnadas
     [HideInInspector]
@@ -41,7 +45,8 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(minSpawnValue, maxSpawnValue), 1, Random.Range(minSpawnValue, maxSpawnValue));
+        //Aleatoriza a posição de Spawn nos eixos X e Z, o Y sempre é 1 que é a altura.
+        Vector3 spawnPos = new Vector3(Random.Range(minSpawnValueX, maxSpawnValueX), 1, Random.Range(minSpawnValueZ, maxSpawnValueZ));
         int randomIndex = Random.Range(0, numbers.Length);
 
         //Checagem se já tem um objeto no lugar onde deveria spawnar
@@ -49,19 +54,19 @@ public class Spawner : MonoBehaviour
         while(collider.Length > 0)
         {
             //se houver, gera outra posição
-            spawnPos = new Vector3(Random.Range(minSpawnValue, maxSpawnValue), 1, Random.Range(minSpawnValue, maxSpawnValue));
+            spawnPos = new Vector3(Random.Range(minSpawnValueX, maxSpawnValueX), 1, Random.Range(minSpawnValueZ, maxSpawnValueZ));
 
             yield return null;
         }
 
-        Instantiate(numbers[randomIndex], spawnPos, Quaternion.Euler(-90, 0, 0));
+        Instantiate(numbers[randomIndex], spawnPos, Quaternion.Euler(-90, 180, 0));
         spawned++;
         
     }
 
     private void OnDrawGizmos()
     {
-        Vector3 size = new Vector3(maxSpawnValue, 1, maxSpawnValue);
+        Vector3 size = new Vector3(maxSpawnValueX, 1, maxSpawnValueZ);
         Gizmos.DrawWireCube(transform.position, size);
     }
 
