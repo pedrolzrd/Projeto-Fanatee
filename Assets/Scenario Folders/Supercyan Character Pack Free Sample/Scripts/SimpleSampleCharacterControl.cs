@@ -17,6 +17,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     [HideInInspector]
     public int id;
+    public bool colected = false;
 
     [SerializeField] private float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
@@ -51,7 +52,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         id = Random.Range(1, 5);
-        print(id);
     }
 
     private void OnCollisionEnter(Collision collision)
