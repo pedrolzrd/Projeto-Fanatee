@@ -10,6 +10,7 @@ TagManager:
   - Number
   - Coin
   - PowerUpSpawner
+  - NumberCollector
   layers:
   - Default
   - TransparentFX
