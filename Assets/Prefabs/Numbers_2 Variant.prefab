@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 2
-  timeToDestroy: 5
+  timeToDestroy: 6
 --- !u!135 &-3564860052294325599
 SphereCollider:
   m_ObjectHideFlags: 0
