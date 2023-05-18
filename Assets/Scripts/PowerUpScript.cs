@@ -27,7 +27,7 @@ public class PowerUpScript : MonoBehaviour
         if (colected == true)
         {
             transform.position = new Vector3(player.transform.position.x, 6, player.transform.position.z);
-        }
+                    }
         if (Input.GetKeyDown(KeyCode.F) && colected == true)
         {
             
@@ -40,9 +40,10 @@ public class PowerUpScript : MonoBehaviour
         {
             colected = true;
             player.GetComponent<SimpleSampleCharacterControl>().powerUpColected = true;
+            
             StartCoroutine(PowerUpSpeed());
             StopCoroutine(destroyCoroutine);
-            //StartCoroutine(colect());
+            
         }
     }
     IEnumerator destroyLifetime()
@@ -55,10 +56,13 @@ public class PowerUpScript : MonoBehaviour
     IEnumerator PowerUpSpeed()
     {
         player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 10f;
+        player.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(true);
         yield return new WaitForSeconds(4f);
+        player.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(false);
         player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 7.5f;
         player.GetComponent<SimpleSampleCharacterControl>().powerUpColected = false;
         Destroy(gameObject);
+
     }
 
 }

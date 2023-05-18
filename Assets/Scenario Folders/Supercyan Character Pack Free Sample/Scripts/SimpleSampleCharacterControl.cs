@@ -20,6 +20,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     public bool colected = false;
     public bool powerUpColected = false;
 
+    [SerializeField]
+    public GameObject effect;
+
     [SerializeField] public float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 4;
@@ -53,6 +56,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         id = Random.Range(1, 5);
+        
     }
 
     private void OnCollisionEnter(Collision collision)
