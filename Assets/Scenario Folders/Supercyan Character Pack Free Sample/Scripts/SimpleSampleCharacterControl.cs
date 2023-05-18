@@ -18,8 +18,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     [HideInInspector]
     public int id;
     public bool colected = false;
+    public bool powerUpColected = false;
 
-    [SerializeField] private float m_moveSpeed = 2;
+    [SerializeField] public float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
     [SerializeField] private float m_jumpForce = 4;
 

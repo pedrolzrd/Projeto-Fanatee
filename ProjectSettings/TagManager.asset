@@ -9,6 +9,7 @@ TagManager:
   - Piece
   - Number
   - Coin
+  - PowerUpSpawner
   layers:
   - Default
   - TransparentFX
