@@ -7,9 +7,11 @@ public class MathScript : MonoBehaviour
 {
     public Text operationText;
     public Text correctAwnsersText;
-    private int correctAnwsers;
+    public Text winGameTotalPoints;
+    public GameObject wingGameUi;
+    public int correctAnwsers;
     private int actualOperationIndex;
-    string[] operations = { "2 + 3",
+    private string[] operations = { "2 + 3",
     "4 - 1",
     "0 + 3",
     "3 + 2",
@@ -19,81 +21,10 @@ public class MathScript : MonoBehaviour
     "9 - 0",
     "2 + 7",
     "5 - 3",
-    "1 + 4",
-    "4 - 2",
-    "0 + 1",
-    "3 - 2",
-    "6 + 3",
-    "4 + 5",
-    "4 + 2",
-    "7 - 4",
-    "2 + 0",
-    "5 - 1",
-    "8 + 1",
-    "1 - 1",
-    "2 + 2",
-    "9 - 9",
-    "3 + 6",
-    "0 x 1",
-    "7 + 2",
-    "2 x 3",
-    "5 + 4",
-    "8 - 7",
-    "1 + 2",
-    "6 - 5",
-    "9 + 0",
-    "4 x 1",
-    "3 + 6",
-    "7 - 2",
-    "2 + 6",
-    "5 * 1",
-    "8 + 0",
-    "1 - 0"};
+     };
+    public int operationsLength;
 
-
-    int[] results = {  5,
-    3,
-    3,
-    5,
-    9,
-    0,
-    7,
-    9,
-    9,
-    2,
-    5,
-    2,
-    1,
-    1,
-    9,
-    9,
-    6,
-    3,
-    2,
-    4,
-    9,
-    0,
-    4,
-    0,
-    9,
-    0,
-    9,
-    6,
-    9,
-    1,
-    3,
-    1,
-    9,
-    4,
-    9,
-    5,
-    8,
-    6,
-    5,
-    8,
-    1,
-    0,
-    1 };
+    private int[] results = {5, 3, 3, 5, 9, 0, 7, 9, 9, 2};
     GameObject player;
     [SerializeField]
     AudioSource rightSound;
@@ -112,12 +43,14 @@ public class MathScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        operationsLength = operations.Length;
         player = GameObject.FindGameObjectWithTag("Player");
         actualOperationIndex = 0;
         operationText.text = string.Format(operations[actualOperationIndex]);
         correctAnwsers = 0;
-        correctAwnsersText.text = correctAnwsers.ToString(); 
-       
+        //correctAwnsersText.text = correctAnwsers.ToString();
+        correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
+
     }
 
     // Update is called once per frame
@@ -141,7 +74,7 @@ public class MathScript : MonoBehaviour
                 StartCoroutine(changeCoinColorGreen());
                actualOperationIndex++;
                 correctAnwsers++;
-                correctAwnsersText.text = correctAnwsers.ToString();
+                correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
                 if (actualOperationIndex < operations.Length)
                 {
                     operationText.text = string.Format(operations[actualOperationIndex]);
@@ -149,6 +82,9 @@ public class MathScript : MonoBehaviour
                 else
                 {
                     print("ganhou!");
+                    wingGameUi.SetActive(true);
+                    winGameTotalPoints.text = correctAnwsers + "/" + operations.Length;
+                   
                 }
                 
 
