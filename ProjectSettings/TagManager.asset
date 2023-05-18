@@ -11,6 +11,7 @@ TagManager:
   - Coin
   - PowerUpSpawner
   - NumberCollector
+  - PowerUpEffect
   layers:
   - Default
   - TransparentFX
