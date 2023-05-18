@@ -40,6 +40,7 @@ public class Number : MonoBehaviour
         {
             colected = true;
             player.GetComponent<SimpleSampleCharacterControl>().colected = true;
+            this.GetComponent<AudioSource>().Play();
             StopCoroutine(destroyCoroutine);
             //StartCoroutine(colect());
         }
