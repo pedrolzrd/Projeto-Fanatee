@@ -13,7 +13,6 @@ public class OperationsGenerator : MonoBehaviour
         a = Random.Range(0, 3);
         b = Random.Range(0, 3);
         c = a + b;
-        print("resultado da soma " + c);
     }
 
 }
