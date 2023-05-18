@@ -64,8 +64,9 @@ public class MathScript : MonoBehaviour
         actualOperationIndex = 0;
         operationText.text = string.Format(operations[actualOperationIndex]);
         correctAnwsers = 0;
-        correctAwnsersText.text = correctAnwsers.ToString(); 
-       
+        //correctAwnsersText.text = correctAnwsers.ToString();
+        correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
+
     }
 
     // Update is called once per frame
