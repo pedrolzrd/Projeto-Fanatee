@@ -37,15 +37,15 @@ public class CountdownTimer : MonoBehaviour
 
         countDownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         int totalPoints = numbercollector.GetComponent<MathScript>().correctAnwsers;
-        int totalAwsers = numbercollector.GetComponent<MathScript>().operations.Length;
+        int totalAwsers = numbercollector.GetComponent<MathScript>().operationsLength;
 
         if (timeLeft <= 0f)
         {
             countDownUi.SetActive(true);
             Debug.Log("Fim da contagem");
-            Destroy(player);
             totalPointsText.text = totalPoints.ToString() + "/" + totalAwsers;
             enabled = false;
+           
         }
 
     }

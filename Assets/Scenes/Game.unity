@@ -15880,22 +15880,7 @@ MonoBehaviour:
   winGameTotalPoints: {fileID: 1354081303}
   wingGameUi: {fileID: 73077082}
   correctAnwsers: 0
-  operations:
-  - 2 + 3
-  - 4 - 1
-  - 0 + 3
-  - 3 + 2
-  - 1 + 8
-  - 3 - 3
-  - 3 + 4
-  - 9 - 0
-  - 2 + 7
-  - 5 - 3
-  - 1 + 4
-  - 4 - 2
-  - 0 + 1
-  - 3 - 2
-  - 6 + 3
+  operationsLength: 0
   rightSound: {fileID: 1513309892}
   wrongSound: {fileID: 1513309891}
   timeToVerify: 0.2

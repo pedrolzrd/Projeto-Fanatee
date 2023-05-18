@@ -11,7 +11,7 @@ public class MathScript : MonoBehaviour
     public GameObject wingGameUi;
     public int correctAnwsers;
     private int actualOperationIndex;
-   public string[] operations = { "2 + 3",
+    private string[] operations = { "2 + 3",
     "4 - 1",
     "0 + 3",
     "3 + 2",
@@ -21,9 +21,10 @@ public class MathScript : MonoBehaviour
     "9 - 0",
     "2 + 7",
     "5 - 3",
-  };
+     };
+    public int operationsLength;
 
-    int[] results = {5, 3, 3, 5, 9, 0, 7, 9, 9, 2};
+    private int[] results = {5, 3, 3, 5, 9, 0, 7, 9, 9, 2};
     GameObject player;
     [SerializeField]
     AudioSource rightSound;
@@ -42,6 +43,7 @@ public class MathScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        operationsLength = operations.Length;
         player = GameObject.FindGameObjectWithTag("Player");
         actualOperationIndex = 0;
         operationText.text = string.Format(operations[actualOperationIndex]);
@@ -82,7 +84,7 @@ public class MathScript : MonoBehaviour
                     print("ganhou!");
                     wingGameUi.SetActive(true);
                     winGameTotalPoints.text = correctAnwsers + "/" + operations.Length;
-                    Destroy(player);
+                   
                 }
                 
 
