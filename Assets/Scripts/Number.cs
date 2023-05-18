@@ -9,14 +9,14 @@ public class Number : MonoBehaviour
     float timeToDestroy;
     bool colected = false;
 
-    GameObject spawner;
+    GameObject numberSpawner;
     GameObject player;
     IEnumerator destroyCoroutine;
 
     private void Start()
     {
         destroyCoroutine = destroyLifetime();
-        spawner = GameObject.FindGameObjectWithTag("Spawner");
+        numberSpawner = GameObject.FindGameObjectWithTag("Spawner");
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(destroyCoroutine);
     }
@@ -50,6 +50,6 @@ public class Number : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToDestroy);
         Destroy(gameObject);
-        spawner.GetComponent<Spawner>().spawned--;
+        numberSpawner.GetComponent<Spawner>().spawned--;
     }
 }
