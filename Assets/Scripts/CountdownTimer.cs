@@ -9,16 +9,12 @@ public class CountdownTimer : MonoBehaviour
     public Text countDownText;
     public Text totalPointsText;
     public GameObject countDownUi;
-     GameObject numbercollector;
+    GameObject numbercollector;
     GameObject player;
     [SerializeField]
     private float totalTime = 120f; // 300f 5 minutos em segundos
     private float timeLeft;
 
-    
-
-
-    // Start is called before the first frame update
     void Start()
     {
         timeLeft = totalTime;
@@ -26,7 +22,7 @@ public class CountdownTimer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         timeLeft -= Time.deltaTime;

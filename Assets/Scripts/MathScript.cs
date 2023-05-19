@@ -11,17 +11,7 @@ public class MathScript : MonoBehaviour
     public GameObject wingGameUi;
     public int correctAnwsers;
     private int actualOperationIndex;
-    private string[] operations = { "2 + 3",
-    "4 - 1",
-    "0 + 3",
-    "3 + 2",
-    "1 + 8",
-    "3 - 3",
-    "3 + 4",
-    "9 - 0",
-    "2 + 7",
-    "5 - 3",
-     };
+    private string[] operations = { "2 + 3","4 - 1", "0 + 3","3 + 2","1 + 8","3 - 3","3 + 4","9 - 0","2 + 7","5 - 3"};
     public int operationsLength;
 
     private int[] results = {5, 3, 3, 5, 9, 0, 7, 9, 9, 2};
@@ -40,7 +30,6 @@ public class MathScript : MonoBehaviour
     [SerializeField]
     GameObject coin;
 
-    // Start is called before the first frame update
     void Start()
     {
         operationsLength = operations.Length;
@@ -53,7 +42,6 @@ public class MathScript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -72,7 +60,7 @@ public class MathScript : MonoBehaviour
             {
                 print("acertou");
                 StartCoroutine(changeCoinColorGreen());
-               actualOperationIndex++;
+                actualOperationIndex++;
                 correctAnwsers++;
                 correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
                 if (actualOperationIndex < operations.Length)
@@ -87,7 +75,6 @@ public class MathScript : MonoBehaviour
                    
                 }
                 
-
             }
             else
             {
@@ -95,11 +82,7 @@ public class MathScript : MonoBehaviour
                 StartCoroutine(changeCoinColorRed());
             }
         }
-
-        
-        
     }
-
 
     IEnumerator changeCoinColorGreen()
     {
@@ -109,8 +92,6 @@ public class MathScript : MonoBehaviour
         coin.GetComponent<MeshRenderer>().material.color = goldMaterial;
     }
 
-
-    
     IEnumerator changeCoinColorRed()
     {
         coin.GetComponent<MeshRenderer>().material.color = Color.red;
