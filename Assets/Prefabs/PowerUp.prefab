@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8235780021714628540}
   - component: {fileID: 4021044012560928500}
   - component: {fileID: 6618851366503840352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 6
-  powerUpEffect: {fileID: 4257251568714034402, guid: 89e4672ee09f56a4a9169e260c819e77, type: 3}
 --- !u!135 &6618851366503840352
 SphereCollider:
   m_ObjectHideFlags: 0

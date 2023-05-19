@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Number : MonoBehaviour
 {
@@ -9,12 +9,15 @@ public class Number : MonoBehaviour
     float timeToDestroy;
     bool colected = false;
 
+    PlayerInput playerInput;
+
     GameObject numberSpawner;
     GameObject player;
     IEnumerator destroyCoroutine;
 
     private void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         destroyCoroutine = destroyLifetime();
         numberSpawner = GameObject.FindGameObjectWithTag("Spawner");
         player = GameObject.FindGameObjectWithTag("Player");
@@ -27,11 +30,22 @@ public class Number : MonoBehaviour
         {
             transform.position = new Vector3(player.transform.position.x, 4, player.transform.position.z);
         }
+
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F) && colected == true)
         {
             Destroy(gameObject);
             player.GetComponent<SimpleSampleCharacterControl>().colected = false;
         }
+#else
+        if (playerInput.actions["DropNumber"].triggered && colected == true)
+        {
+            Destroy(gameObject);
+            player.GetComponent<SimpleSampleCharacterControl>().colected = false;
+        }
+#endif
+
+
     }
 
     private void OnTriggerEnter(Collider other)

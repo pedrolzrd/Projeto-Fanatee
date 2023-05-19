@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class Spawner : MonoBehaviour
 {
@@ -69,14 +68,4 @@ public class Spawner : MonoBehaviour
         Vector3 size = new Vector3(maxSpawnValueX, 1, maxSpawnValueZ);
         Gizmos.DrawWireCube(transform.position, size);
     }
-
-    /*
-    Vector3 RandomizePos()
-    {
-        Vector3 pos = new Vector3(Random.Range(minSpawnValue, maxSpawnValue), 1, Random.Range(minSpawnValue, maxSpawnValue));
-        pos = transform.position;
-
-        return pos;
-    }
-    */
 }
