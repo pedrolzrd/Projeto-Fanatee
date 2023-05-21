@@ -5,19 +5,27 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     //variaveis
-    Vector3 offset;
+    private Vector3 offset;
 
     //Objetos/Componentes
     [SerializeField]
-    GameObject player;
+    private Transform player;
+    [SerializeField]
+    private float smoothTime;
 
-    void Start()
+    private Vector3 _currentVelocity = Vector3.zero;
+
+    private void Awake()
     {
         offset = transform.position - player.transform.position;
     }
 
-    void Update()
+    private void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        Vector3 playerPosition = player.position + offset;
+
+        transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref _currentVelocity, smoothTime);
+
+        
     }
 }

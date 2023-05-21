@@ -38,6 +38,7 @@ public class CountdownTimer : MonoBehaviour
         if (timeLeft <= 0f)
         {
             countDownUi.SetActive(true);
+            player.SetActive(false);
             Debug.Log("Fim da contagem");
             totalPointsText.text = totalPoints.ToString() + "/" + totalAwsers;
             enabled = false;
