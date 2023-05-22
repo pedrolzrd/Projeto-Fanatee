@@ -10,10 +10,6 @@ public class CameraScript : MonoBehaviour
     //Objetos/Componentes
     [SerializeField]
     private Transform player;
-    [SerializeField]
-    private float smoothTime;
-
-    private Vector3 _currentVelocity = Vector3.zero;
 
     private void Awake()
     {
@@ -23,9 +19,5 @@ public class CameraScript : MonoBehaviour
     private void LateUpdate()
     {
         transform.position = player.transform.position + offset;
-
-        //transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref _currentVelocity, smoothTime);
-
-
     }
 }
