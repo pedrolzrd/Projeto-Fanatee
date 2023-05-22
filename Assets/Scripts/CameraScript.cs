@@ -22,10 +22,10 @@ public class CameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 playerPosition = player.position + offset;
+        transform.position = player.transform.position + offset;
 
-        transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref _currentVelocity, smoothTime);
+        //transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref _currentVelocity, smoothTime);
 
-        
+
     }
 }
