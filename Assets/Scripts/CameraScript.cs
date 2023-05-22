@@ -9,23 +9,17 @@ public class CameraScript : MonoBehaviour
 
     //Objetos/Componentes
     [SerializeField]
-    private Transform player;
+    GameObject player;
     [SerializeField]
-    private float smoothTime;
 
-    private Vector3 _currentVelocity = Vector3.zero;
 
-    private void Awake()
+    private void Start()
     {
         offset = transform.position - player.transform.position;
     }
 
     private void LateUpdate()
     {
-        Vector3 playerPosition = player.position + offset;
-
-        transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref _currentVelocity, smoothTime);
-
-        
+        transform.position = player.transform.position + offset;
     }
 }
