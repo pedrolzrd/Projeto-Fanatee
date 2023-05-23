@@ -24,6 +24,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void PlayGameTeams()
+    {
+        SceneManager.LoadScene("Game Teams");
+    }
+
     public void backToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
