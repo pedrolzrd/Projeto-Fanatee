@@ -1,4 +1,4 @@
-# Projeto-Fanatee
+# Math Tower
 Projeto de um mini-game para  Arena of Dreams do estúdio Fanatee
 
 
