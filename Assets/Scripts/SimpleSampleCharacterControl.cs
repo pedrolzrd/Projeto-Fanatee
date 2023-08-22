@@ -119,18 +119,16 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_EDITOR
+/*UNITY_EDITOR
         if (!m_jumpInput && Input.GetButton("Jump")) 
         {
             m_jumpInput = true;
-        }
-#else
+        }*/
+
         if (!m_jumpInput && playerInput.actions["Jump"].triggered)
         {
             m_jumpInput = true;
         }
-#endif
-
     }
 
     private void FixedUpdate()
@@ -149,16 +147,16 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     {
         
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
 
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
-#else
+       // float v = Input.GetAxis("Vertical");
+       // float h = Input.GetAxis("Horizontal");
+//#else
         Vector2 input = playerInput.actions["Move"].ReadValue<Vector2>();
 
         float v = input.y;
         float h = input.x;
-#endif
+//#endif
 
 
 

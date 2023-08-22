@@ -35,8 +35,63 @@
             ],
             "bindings": [
                 {
+                    "name": "2D Vector",
+                    "id": "a51b5fa5-7769-4454-887f-28071d19d187",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "cb059a02-afd7-49b2-937d-b7385b8cb3ab",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "2c56691f-3f11-4682-9aff-174d519beeb2",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "7695c247-ce92-4cc8-9edd-1300fc662ecc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7fca32da-cfc0-4cc1-8745-aec5b223b187",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
-                    "id": "2f626f6e-9ed5-414a-bf12-d11e9ec2cd53",
+                    "id": "bb61dd82-ccbc-480b-b1e1-931d980e36e8",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -47,7 +102,18 @@
                 },
                 {
                     "name": "",
-                    "id": "cdab1935-cee0-40d5-86d0-08cdce63111c",
+                    "id": "0cc9d0fa-455e-40fe-83b1-f2f6c98dca63",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3efb2467-4404-48bd-89fa-e87b88f8ae8d",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -58,7 +124,18 @@
                 },
                 {
                     "name": "",
-                    "id": "60692d90-37a8-443f-84be-5ac62c267166",
+                    "id": "4a8cfaf2-b3b5-4552-bd7f-32fc4bc4a3f4",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropNumber",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5192c21-7921-495d-a051-4701be30932e",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",

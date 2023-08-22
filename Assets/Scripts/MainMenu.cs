@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
 
     public GameObject gameModeUi;
 
+    [SerializeField]GameObject creditsMenu;
+
     public void openPopup()
     {
         gameModeUi.SetActive(true);
@@ -32,6 +34,20 @@ public class MainMenu : MonoBehaviour
     public void backToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void backtoMenu()
+    {
+        creditsMenu.SetActive(false);
+        gameObject.SetActive(true);
+    }
+
+ 
+
+    public void Credits()
+    {
+        gameObject.SetActive(false);
+        creditsMenu.SetActive(true);
     }
     public void QuitGame()
     {
