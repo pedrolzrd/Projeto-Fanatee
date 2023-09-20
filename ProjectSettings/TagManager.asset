@@ -13,6 +13,8 @@ TagManager:
   - NumberCollector
   - PowerUpEffect
   - Player 2
+  - timer
+  - spawnerTime
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - UI
   - collider
   - Ground
-  - 
+  - player
   - 
   - 
   - 
