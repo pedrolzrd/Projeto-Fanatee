@@ -54,6 +54,7 @@ public class PowerUpScript : MonoBehaviour
             StopCoroutine(destroyCoroutine);
         }
 
+
         if (other.CompareTag("Player 2") && player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 == false)
         {
             collectByPlayer2 = true;
