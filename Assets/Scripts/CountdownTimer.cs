@@ -13,7 +13,7 @@ public class CountdownTimer : MonoBehaviour
     GameObject player;
     [SerializeField]
     private float totalTime = 120f; // 300f 5 minutos em segundos
-    private float timeLeft;
+    public float timeLeft;
 
     void Start()
     {
