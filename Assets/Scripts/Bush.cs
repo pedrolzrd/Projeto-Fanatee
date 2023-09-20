@@ -22,7 +22,7 @@ public class Bush : MonoBehaviour
     private void OnTriggerStay(Collider player)
     {
         //Altera o material para o material translucido
-        if (player.CompareTag("Player"))
+        if (player.gameObject.layer == 8)
         {
             this.GetComponent<Renderer>().material = transpMat;
         }
@@ -31,7 +31,7 @@ public class Bush : MonoBehaviour
     private void OnTriggerExit(Collider player)
     {
         //Retorna o material para o materal opaco
-        if (player.CompareTag("Player"))
+        if (player.gameObject.layer == 8)
         {
             this.GetComponent<Renderer>().material = opaqMat;
         }
