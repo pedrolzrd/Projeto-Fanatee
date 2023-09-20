@@ -7,17 +7,21 @@ public class PowerUpScript : MonoBehaviour
     [SerializeField]
     float timeToDestroy;
     bool colected = false;
+    bool collectByPlayer2 = false;
 
     GameObject powerUpSpawner;
     GameObject player;
+    GameObject player2;
 
     IEnumerator destroyCoroutine;
 
     void Start()
     {
+        transform.Rotate(-45f, 0, 0);
         destroyCoroutine = destroyLifetime();
         powerUpSpawner = GameObject.FindGameObjectWithTag("PowerUpSpawner");
         player = GameObject.FindGameObjectWithTag("Player");
+        player2 = GameObject.FindGameObjectWithTag("Player 2");
         StartCoroutine(destroyCoroutine);
     }
 
@@ -27,7 +31,12 @@ public class PowerUpScript : MonoBehaviour
         if (colected == true)
         {
             transform.position = new Vector3(player.transform.position.x, 6, player.transform.position.z);
-                    }
+        }
+
+        if (collectByPlayer2 == true)
+        {
+            transform.position = new Vector3(player2.transform.position.x, 6, player2.transform.position.z);
+        }
         if (Input.GetKeyDown(KeyCode.F) && colected == true)
         {
             
@@ -43,7 +52,15 @@ public class PowerUpScript : MonoBehaviour
             
             StartCoroutine(PowerUpSpeed());
             StopCoroutine(destroyCoroutine);
-            
+        }
+
+        if (other.CompareTag("Player 2") && player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 == false)
+        {
+            collectByPlayer2 = true;
+            player.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 = true;
+
+            StartCoroutine(PowerUpSpeedPlayer2());
+            StopCoroutine(destroyCoroutine);
         }
     }
     IEnumerator destroyLifetime()
@@ -55,12 +72,24 @@ public class PowerUpScript : MonoBehaviour
 
     IEnumerator PowerUpSpeed()
     {
-        player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 10f;
+        player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 15f;
         player.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         player.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(false);
-        player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 7.5f;
+        player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 9f;
         player.GetComponent<SimpleSampleCharacterControl>().powerUpColected = false;
+        Destroy(gameObject);
+
+    }
+
+    IEnumerator PowerUpSpeedPlayer2()
+    {
+        player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 15f;
+        player2.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        player2.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(false);
+        player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 9f;
+        player2.GetComponent<SimpleSampleCharacterControl>().powerUpColected = false;
         Destroy(gameObject);
 
     }

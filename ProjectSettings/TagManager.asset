@@ -12,6 +12,7 @@ TagManager:
   - PowerUpSpawner
   - NumberCollector
   - PowerUpEffect
+  - Player 2
   layers:
   - Default
   - TransparentFX

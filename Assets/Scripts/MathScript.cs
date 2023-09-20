@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MathScript : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MathScript : MonoBehaviour
 
     private int[] results = {5, 3, 3, 5, 9, 0, 7, 9, 9, 2};
     GameObject player;
+    GameObject player2;
     [SerializeField]
     AudioSource rightSound;
     [SerializeField]
@@ -34,6 +36,7 @@ public class MathScript : MonoBehaviour
     {
         operationsLength = operations.Length;
         player = GameObject.FindGameObjectWithTag("Player");
+        player2 = GameObject.FindGameObjectWithTag("Player 2");
         actualOperationIndex = 0;
         operationText.text = string.Format(operations[actualOperationIndex]);
         correctAnwsers = 0;
@@ -55,7 +58,8 @@ public class MathScript : MonoBehaviour
             Number number = other.gameObject.GetComponent<Number>();
             Destroy(other.gameObject);
             player.GetComponent<SimpleSampleCharacterControl>().colected = false;
-           
+            player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = false;
+
             if (number.value == results[actualOperationIndex])
             {
                 print("acertou");

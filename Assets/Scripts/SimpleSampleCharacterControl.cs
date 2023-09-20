@@ -21,7 +21,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     [HideInInspector]
     public int id;
     public bool colected = false;
+    public bool colectedByPlayer2 = false;
     public bool powerUpColected = false;
+    public bool powerUpColectedByPlayer2 = false;
 
     [SerializeField]
     public GameObject effect;
