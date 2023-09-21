@@ -53,6 +53,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private bool m_isGrounded;
 
     private List<Collider> m_collisions = new List<Collider>();
+    
+    [SerializeField]private float xRange;
 
     private void Awake()
     {
@@ -131,6 +133,15 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_jumpInput = true;
         }
+
+
+        //BOUNDARIES
+        if (transform.position.x > xRange)
+        {
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
+
+
     }
 
     private void FixedUpdate()
