@@ -12,10 +12,10 @@ public class MathScript : MonoBehaviour
     public GameObject wingGameUi;
     public int correctAnwsers;
     private int actualOperationIndex;
-    private string[] operations = { "2 + 3","4 - 1", "0 + 3","3 + 2","1 + 8","3 - 3","3 + 4","9 - 0","2 + 7","5 - 3"};
+    private string[] operations = { "2 + 3", "2 x 2", "4 - 1", "4 x 2", "0 + 3", "4 x 1", "3 + 2","1 + 8", "0 x 9", "3 - 3","3 + 4","9 - 0","2 + 7","5 - 3"};
     public int operationsLength;
 
-    private int[] results = {5, 3, 3, 5, 9, 0, 7, 9, 9, 2};
+    private int[] results = {5, 4, 3, 8, 3, 4, 5, 9, 0, 0, 7, 9, 9, 2};
     GameObject player;
     GameObject player2;
     [SerializeField]
