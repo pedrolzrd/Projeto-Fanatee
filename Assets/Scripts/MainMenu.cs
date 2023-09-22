@@ -10,11 +10,22 @@ public class MainMenu : MonoBehaviour
 
     public GameObject gameModeUi;
 
+    public GameObject gameModes;
+
+    public GameObject playerSelection;
+
     [SerializeField]GameObject creditsMenu;
 
     public void openPopup()
     {
         gameModeUi.SetActive(true);
+    }
+
+    public void PlayerSelectionMenu()
+    {
+        gameModes.SetActive(false);
+        playerSelection.SetActive(true);
+
     }
 
     public void closePopup()

@@ -26,7 +26,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     public bool powerUpColectedByPlayer2 = false;
 
     [SerializeField]
-    public GameObject effect;
+    public GameObject powerUpEffect;
 
     [SerializeField] public float m_moveSpeed = 7.5f;
     
@@ -53,8 +53,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private bool m_isGrounded;
 
     private List<Collider> m_collisions = new List<Collider>();
-    
-    [SerializeField]private float xRange;
+
 
     private void Awake()
     {
@@ -135,12 +134,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         }
 
 
-        //BOUNDARIES
-        if (transform.position.x > xRange)
-        {
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-        }
-
+        
 
     }
 

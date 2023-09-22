@@ -12,6 +12,10 @@ public class PowerUpTime : MonoBehaviour
 
     IEnumerator destroyCoroutine;
 
+    [SerializeField]ParticleSystem powerUpTimeEffect;
+
+
+
     void Start()
     {
         transform.Rotate(-45, 0, 0);
@@ -27,7 +31,9 @@ public class PowerUpTime : MonoBehaviour
         {
             print("col");
             timePoints.GetComponent<CountdownTimer>().timeLeft += addTime;
-            Destroy(gameObject, 1);
+            
+            Instantiate(powerUpTimeEffect, transform.position, Quaternion.Euler(-90,0f,0f));
+            Destroy(gameObject);
         }
     }
 

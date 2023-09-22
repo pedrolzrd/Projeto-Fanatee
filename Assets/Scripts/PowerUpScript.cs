@@ -58,7 +58,7 @@ public class PowerUpScript : MonoBehaviour
         if (other.CompareTag("Player 2") && player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 == false)
         {
             collectByPlayer2 = true;
-            player.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 = true;
+            player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 = true;
 
             StartCoroutine(PowerUpSpeedPlayer2());
             StopCoroutine(destroyCoroutine);
@@ -74,9 +74,9 @@ public class PowerUpScript : MonoBehaviour
     IEnumerator PowerUpSpeed()
     {
         player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 15f;
-        player.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(true);
+        player.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(true);
         yield return new WaitForSeconds(2f);
-        player.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(false);
+        player.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(false);
         player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 9f;
         player.GetComponent<SimpleSampleCharacterControl>().powerUpColected = false;
         Destroy(gameObject);
@@ -86,13 +86,12 @@ public class PowerUpScript : MonoBehaviour
     IEnumerator PowerUpSpeedPlayer2()
     {
         player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 15f;
-        player2.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(true);
+        player2.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(true);
         yield return new WaitForSeconds(2f);
-        player2.GetComponent<SimpleSampleCharacterControl>().effect.SetActive(false);
+        player2.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(false);
         player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 9f;
-        player2.GetComponent<SimpleSampleCharacterControl>().powerUpColected = false;
+        player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 = false;
         Destroy(gameObject);
 
     }
-
 }

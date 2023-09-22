@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDestroy: 10
   addTime: 5
+  powerUpTimeEffect: {fileID: 2030209676089208553, guid: a83012dc2533a4b419bad33128d711a4, type: 3}
 --- !u!135 &8754315271010815314
 SphereCollider:
   m_ObjectHideFlags: 0
