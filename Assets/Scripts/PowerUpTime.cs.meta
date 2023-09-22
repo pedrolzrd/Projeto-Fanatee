@@ -3,7 +3,8 @@ guid: 71e64ded003cfe6409e800353ffb5b13
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - powerUpTimeEffect: {fileID: 2030209676089208553, guid: a83012dc2533a4b419bad33128d711a4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

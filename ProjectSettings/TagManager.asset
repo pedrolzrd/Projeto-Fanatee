@@ -15,6 +15,7 @@ TagManager:
   - Player 2
   - timer
   - spawnerTime
+  - ClockEffect
   layers:
   - Default
   - TransparentFX
