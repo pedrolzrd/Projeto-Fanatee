@@ -7,6 +7,8 @@ public class MathScript : MonoBehaviour
 {
     public Text scoreP1;
     public Text scoreP2;
+    public GameObject crownP1;
+    public GameObject crownP2;
     public Text operationText;
     public Text correctAwnsersText;
     public Text winGameTotalPoints;
@@ -83,6 +85,10 @@ public class MathScript : MonoBehaviour
                     correctAnwsersP2++;
                     scoreP2.text = correctAnwsersP2.ToString();
                 }
+                
+                crownP1.SetActive(correctAnwsersP1 > 0 && correctAnwsersP1 >= correctAnwsersP2);
+                crownP2.SetActive(correctAnwsersP2 > 0 && correctAnwsersP2 >= correctAnwsersP1);
+                
 
                 if (actualOperationIndex < operations.Length)
                 {
