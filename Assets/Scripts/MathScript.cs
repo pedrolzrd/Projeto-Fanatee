@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class MathScript : MonoBehaviour
 {
+    public Text scoreP1;
+    public Text scoreP2;
     public Text operationText;
     public Text correctAwnsersText;
     public Text winGameTotalPoints;
     public GameObject wingGameUi;
     public int correctAnwsers;
+    public int correctAnwsersP1;
+    public int correctAnwsersP2;
     private int actualOperationIndex;
     private string[] operations = { "2 + 3", "2 x 2", "4 - 1", "4 x 2", "0 + 3", "7 x 1", "3 + 2","1 + 8", "0 x 9", "3 - 3","3 + 4","9 - 0","2 + 7","5 - 3"};
     public int operationsLength;
@@ -39,6 +43,8 @@ public class MathScript : MonoBehaviour
         actualOperationIndex = 0;
         operationText.text = string.Format(operations[actualOperationIndex]);
         correctAnwsers = 0;
+        correctAnwsersP1 = 0;
+        correctAnwsersP2 = 0;
         //correctAwnsersText.text = correctAnwsers.ToString();
         correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
 
@@ -56,9 +62,12 @@ public class MathScript : MonoBehaviour
         {
             Number number = other.gameObject.GetComponent<Number>();
             Destroy(other.gameObject);
+
+            bool wasCollectedByPlayer1 = player.GetComponent<SimpleSampleCharacterControl>().colected;
+
             player.GetComponent<SimpleSampleCharacterControl>().colected = false;
             player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = false;
-
+                
             if (number.value == results[actualOperationIndex])
             {
                 print("acertou");
@@ -66,6 +75,15 @@ public class MathScript : MonoBehaviour
                 actualOperationIndex++;
                 correctAnwsers++;
                 correctAwnsersText.text = correctAnwsers + "/" + operations.Length;
+
+                if(wasCollectedByPlayer1) {
+                    correctAnwsersP1++;
+                    scoreP1.text = correctAnwsersP1.ToString();
+                }else{
+                    correctAnwsersP2++;
+                    scoreP2.text = correctAnwsersP2.ToString();
+                }
+
                 if (actualOperationIndex < operations.Length)
                 {
                     operationText.text = string.Format(operations[actualOperationIndex]);

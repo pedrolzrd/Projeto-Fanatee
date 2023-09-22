@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountPoints : MonoBehaviour
 {
     [SerializeField]
-    //Text textPoints;
+    Text textPoints;
 
     public int points;
 
