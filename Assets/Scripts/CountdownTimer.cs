@@ -43,10 +43,6 @@ public class CountdownTimer : MonoBehaviour
         Text scoreP1 = numbercollector.GetComponent<MathScript>().scoreP1;
         Text scoreP2 = numbercollector.GetComponent<MathScript>().scoreP2;
 
-        //Debug.Log("printing p1");
-        //Debug.Log(scoreP1.text);
-        //Debug.Log(scoreP1);
-
         int totalPoints = numbercollector.GetComponent<MathScript>().correctAnwsers;
         int totalAwsers = numbercollector.GetComponent<MathScript>().operationsLength;
 
