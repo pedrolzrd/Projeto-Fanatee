@@ -45,20 +45,20 @@ public class PowerUpScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && player.GetComponent<SimpleSampleCharacterControl>().powerUpColected == false)
+        if (other.CompareTag("Player") && player.GetComponent<Player1>().powerUpColected == false)
         {
             colected = true;
-            player.GetComponent<SimpleSampleCharacterControl>().powerUpColected = true;
+            player.GetComponent<Player1>().powerUpColected = true;
             
             StartCoroutine(PowerUpSpeed());
             StopCoroutine(destroyCoroutine);
         }
 
 
-        if (other.CompareTag("Player 2") && player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 == false)
+        if (other.CompareTag("Player 2") && player2.GetComponent<Player2>().powerUpColectedByPlayer2 == false)
         {
             collectByPlayer2 = true;
-            player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 = true;
+            player2.GetComponent<Player2>().powerUpColectedByPlayer2 = true;
 
             StartCoroutine(PowerUpSpeedPlayer2());
             StopCoroutine(destroyCoroutine);
@@ -73,24 +73,24 @@ public class PowerUpScript : MonoBehaviour
 
     IEnumerator PowerUpSpeed()
     {
-        player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 15f;
-        player.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(true);
+        player.GetComponent<Player1>().m_moveSpeed = 15f;
+        player.GetComponent<Player1>().powerUpEffect.SetActive(true);
         yield return new WaitForSeconds(2f);
-        player.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(false);
-        player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 9f;
-        player.GetComponent<SimpleSampleCharacterControl>().powerUpColected = false;
+        player.GetComponent<Player1>().powerUpEffect.SetActive(false);
+        player.GetComponent<Player1>().m_moveSpeed = 9f;
+        player.GetComponent<Player1>().powerUpColected = false;
         Destroy(gameObject);
 
     }
 
     IEnumerator PowerUpSpeedPlayer2()
     {
-        player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 15f;
-        player2.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(true);
+        player2.GetComponent<Player2>().m_moveSpeed = 15f;
+        player2.GetComponent<Player2>().powerUpEffect.SetActive(true);
         yield return new WaitForSeconds(2f);
-        player2.GetComponent<SimpleSampleCharacterControl>().powerUpEffect.SetActive(false);
-        player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = 9f;
-        player2.GetComponent<SimpleSampleCharacterControl>().powerUpColectedByPlayer2 = false;
+        player2.GetComponent<Player2>().powerUpEffect.SetActive(false);
+        player2.GetComponent<Player2>().m_moveSpeed = 9f;
+        player2.GetComponent<Player2>().powerUpColectedByPlayer2 = false;
         Destroy(gameObject);
 
     }

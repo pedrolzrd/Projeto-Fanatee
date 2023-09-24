@@ -2,40 +2,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SimpleSampleCharacterControl : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     PlayerInput playerInput;
-
-    private enum ControlMode
-    {
-        /// <summary>
-        /// Up moves the character forward, left and right turn the character gradually and down moves the character backwards
-        /// </summary>
-        Tank,
-        /// <summary>
-        /// Character freely moves in the chosen direction from the perspective of the camera
-        /// </summary>
-        Direct
-    }
 
     [HideInInspector]
     public int id;
     public bool colected = false;
-    public bool colectedByPlayer2 = false;
+
     public bool powerUpColected = false;
-    public bool powerUpColectedByPlayer2 = false;
+
+    //Stealing Numbers Mechanic
+    public bool p1CanSteal = true;
 
     [SerializeField]
     public GameObject powerUpEffect;
 
-    [SerializeField] public float m_moveSpeed = 7.5f;
+    [SerializeField] public float m_moveSpeed = 9f;
     
-    [SerializeField] private float m_jumpForce = 4;
+    [SerializeField] private float m_jumpForce = 5;
 
     [SerializeField] private Animator m_animator = null;
     [SerializeField] private Rigidbody m_rigidBody = null;
-
-    
 
     private float m_currentV = 0;
     private float m_currentH = 0;
@@ -132,10 +120,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_jumpInput = true;
         }
-
-
-        
-
     }
 
     private void FixedUpdate()
@@ -164,8 +148,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         float v = input.y;
         float h = input.x;
 //#endif
-
-
 
         Transform camera = Camera.main.transform;
 

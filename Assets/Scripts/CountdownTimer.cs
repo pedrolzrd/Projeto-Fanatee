@@ -14,6 +14,8 @@ public class CountdownTimer : MonoBehaviour
     public GameObject countDownUi;
     GameObject numbercollector;
     GameObject player;
+    GameObject player2;
+
     [SerializeField]
     private float totalTime = 120f; // 300f 5 minutos em segundos
     public float timeLeft;
@@ -24,6 +26,7 @@ public class CountdownTimer : MonoBehaviour
         numbercollector = GameObject.FindGameObjectWithTag("NumberCollector");
         numbercollector = GameObject.FindGameObjectWithTag("NumberCollector");
         player = GameObject.FindGameObjectWithTag("Player");
+        player2 = GameObject.FindGameObjectWithTag("Player 2");
     }
 
 
@@ -40,9 +43,9 @@ public class CountdownTimer : MonoBehaviour
         Text scoreP1 = numbercollector.GetComponent<MathScript>().scoreP1;
         Text scoreP2 = numbercollector.GetComponent<MathScript>().scoreP2;
 
-        Debug.Log("printing p1");
-        Debug.Log(scoreP1.text);
-        Debug.Log(scoreP1);
+        //Debug.Log("printing p1");
+        //Debug.Log(scoreP1.text);
+        //Debug.Log(scoreP1);
 
         int totalPoints = numbercollector.GetComponent<MathScript>().correctAnwsers;
         int totalAwsers = numbercollector.GetComponent<MathScript>().operationsLength;
@@ -51,6 +54,7 @@ public class CountdownTimer : MonoBehaviour
         {
             countDownUi.SetActive(true);
             player.SetActive(false);
+            player2.SetActive(false);
             Debug.Log("Fim da contagem");
             finalScoreP1.text = scoreP1.text;
             finalScoreP2.text = scoreP2.text;

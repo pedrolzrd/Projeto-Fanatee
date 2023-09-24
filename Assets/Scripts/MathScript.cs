@@ -58,15 +58,15 @@ public class MathScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.tag == "Number")
+        if(other.CompareTag("CollectedNumberP1") || other.CompareTag("CollectedNumberP2"))
         {
             Number number = other.gameObject.GetComponent<Number>();
             Destroy(other.gameObject);
 
-            bool wasCollectedByPlayer1 = player.GetComponent<SimpleSampleCharacterControl>().colected;
+            bool wasCollectedByPlayer1 = player.GetComponent<Player1>().colected;
 
-            player.GetComponent<SimpleSampleCharacterControl>().colected = false;
-            player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = false;
+            player.GetComponent<Player1>().colected = false;
+            player2.GetComponent<Player2>().colectedByPlayer2 = false;
                 
             if (number.value == results[actualOperationIndex])
             {
@@ -78,9 +78,11 @@ public class MathScript : MonoBehaviour
 
                 if(wasCollectedByPlayer1) {
                     correctAnwsersP1++;
+                    player.GetComponent<Player1>().p1CanSteal = true;  
                     scoreP1.text = correctAnwsersP1.ToString();
                 }else{
                     correctAnwsersP2++;
+                    player2.GetComponent <Player2>().p2CanSteal = true;
                     scoreP2.text = correctAnwsersP2.ToString();
                 }
 

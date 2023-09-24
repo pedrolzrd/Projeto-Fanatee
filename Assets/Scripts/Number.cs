@@ -6,8 +6,8 @@ public class Number : MonoBehaviour
     public int value;
     [SerializeField]
     float timeToDestroy;
-    bool colected = false;
-    bool colectedByPlayer2 = false;
+    public bool colected = false;
+    public bool colectedByPlayer2 = false;
 
     GameObject numberSpawner;
     GameObject player;
@@ -28,14 +28,16 @@ public class Number : MonoBehaviour
 
     private void Update()
     {
-        if (colected == true)
+        if (colected == true) // Faz o numero ficar acima da cabeça quando coletado.
         {
             transform.position = new Vector3(player.transform.position.x, 4, player.transform.position.z);
+            gameObject.tag = "CollectedNumberP1"; //Marca o prefab do numero como Coletado por player1
         }
 
-        if (colectedByPlayer2 == true)
+        if (colectedByPlayer2 == true) // Faz o numero ficar acima da cabeça quando coletado.
         {
             transform.position = new Vector3(player2.transform.position.x, 4, player2.transform.position.z);
+            gameObject.tag = "CollectedNumberP2"; //marca o prefab como coletado pelo player 2
         }
 
 
@@ -43,31 +45,35 @@ public class Number : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && colected == true)
         {
             Destroy(gameObject);
-            player.GetComponent<SimpleSampleCharacterControl>().colected = false;
+            player.GetComponent<Player1>().colected = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightControl) && colectedByPlayer2 == true)
+
+
+        if (Input.GetKeyDown(KeyCode.RightShift) && colectedByPlayer2 == true)
         {
             Destroy(gameObject);
-            player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = false;
+            player2.GetComponent<Player2>().colectedByPlayer2 = false;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player 2") && player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 == false)
+        if (other.CompareTag("Player 2") && player2.GetComponent<Player2>().colectedByPlayer2 == false)
         {
             colectedByPlayer2 = true;
-            player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = true;
+            player2.GetComponent<Player2>().colectedByPlayer2 = true;
+            player2.GetComponent<Player2>().p2CanSteal = false;
             this.GetComponent<AudioSource>().Play();
             StopCoroutine(destroyCoroutine);
             //StartCoroutine(colect());
         }
 
-        if (other.CompareTag("Player") && player.GetComponent<SimpleSampleCharacterControl>().colected == false)
+        if (other.CompareTag("Player") && player.GetComponent<Player1>().colected == false)
         {
             colected = true;
-            player.GetComponent<SimpleSampleCharacterControl>().colected = true;
+            player.GetComponent<Player1>().colected = true;
+            player.GetComponent<Player1>().p1CanSteal = false;
             this.GetComponent<AudioSource>().Play();
             StopCoroutine(destroyCoroutine);
             //StartCoroutine(colect());
