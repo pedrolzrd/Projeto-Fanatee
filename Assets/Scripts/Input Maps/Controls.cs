@@ -55,7 +55,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Soma Start"",
+                    ""name"": ""SomaStart"",
                     ""type"": ""Button"",
                     ""id"": ""381ed3dc-dbe3-4113-9087-651fda6635ee"",
                     ""expectedControlType"": ""Button"",
@@ -64,7 +64,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Soma Finished"",
+                    ""name"": ""SomaFinished"",
                     ""type"": ""Button"",
                     ""id"": ""268916b6-c781-4354-82e7-1f9373f18b7d"",
                     ""expectedControlType"": ""Button"",
@@ -158,7 +158,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Soma Start"",
+                    ""action"": ""SomaStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -169,7 +169,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Soma Finished"",
+                    ""action"": ""SomaFinished"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -372,8 +372,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player1Actions_Move = m_Player1Actions.FindAction("Move", throwIfNotFound: true);
         m_Player1Actions_Jump = m_Player1Actions.FindAction("Jump", throwIfNotFound: true);
         m_Player1Actions_DropNumber = m_Player1Actions.FindAction("DropNumber", throwIfNotFound: true);
-        m_Player1Actions_SomaStart = m_Player1Actions.FindAction("Soma Start", throwIfNotFound: true);
-        m_Player1Actions_SomaFinished = m_Player1Actions.FindAction("Soma Finished", throwIfNotFound: true);
+        m_Player1Actions_SomaStart = m_Player1Actions.FindAction("SomaStart", throwIfNotFound: true);
+        m_Player1Actions_SomaFinished = m_Player1Actions.FindAction("SomaFinished", throwIfNotFound: true);
         // Player 2 Actions
         m_Player2Actions = asset.FindActionMap("Player 2 Actions", throwIfNotFound: true);
         m_Player2Actions_Move = m_Player2Actions.FindAction("Move", throwIfNotFound: true);
