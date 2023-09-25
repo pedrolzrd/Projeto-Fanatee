@@ -6,17 +6,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 {
     PlayerInput playerInput;
 
-    private enum ControlMode
-    {
-        /// <summary>
-        /// Up moves the character forward, left and right turn the character gradually and down moves the character backwards
-        /// </summary>
-        Tank,
-        /// <summary>
-        /// Character freely moves in the chosen direction from the perspective of the camera
-        /// </summary>
-        Direct
-    }
+    private Controls controls;
+
+    
 
     [HideInInspector]
     public int id;
@@ -24,6 +16,11 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     public bool colectedByPlayer2 = false;
     public bool powerUpColected = false;
     public bool powerUpColectedByPlayer2 = false;
+
+    public bool isAdding;
+
+    [SerializeField] private InputActionReference actionReference;
+
 
     [SerializeField]
     public GameObject powerUpEffect;
@@ -59,10 +56,109 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
 
+        controls = new Controls();
+
+        controls.Player1Actions.SomaStart.performed += x => AddingPressed();
+        controls.Player1Actions.SomaFinished.performed += x => AddingReleased();
+
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         id = Random.Range(1, 5);
         
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    private void Update()
+    {
+        /*UNITY_EDITOR
+                if (!m_jumpInput && Input.GetButton("Jump")) 
+                {
+                    m_jumpInput = true;
+                }*/
+
+        if (!m_jumpInput && playerInput.actions["Jump"].triggered)
+        {
+            m_jumpInput = true;
+        }
+
+
+
+    }
+
+    private void AddingPressed()
+    {
+        isAdding = true;
+    }
+
+    private void AddingReleased()
+    {
+        isAdding = false;
+    }
+
+    private void FixedUpdate()
+    {
+        m_animator.SetBool("Grounded", m_isGrounded);
+
+
+        DirectUpdate();
+
+
+        m_wasGrounded = m_isGrounded;
+        m_jumpInput = false;
+    }
+
+    private void DirectUpdate()
+    {
+
+
+        //#if UNITY_EDITOR
+
+        // float v = Input.GetAxis("Vertical");
+        // float h = Input.GetAxis("Horizontal");
+        //#else
+        Vector2 input = playerInput.actions["Move"].ReadValue<Vector2>();
+
+        float v = input.y;
+        float h = input.x;
+        //#endif
+
+        Transform camera = Camera.main.transform;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            v *= m_walkScale;
+            h *= m_walkScale;
+        }
+
+        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
+        m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
+
+        Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;
+
+        float directionLength = direction.magnitude;
+        direction.y = 0;
+        direction = direction.normalized * directionLength;
+
+        if (direction != Vector3.zero)
+        {
+            m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * m_interpolation);
+
+            transform.rotation = Quaternion.LookRotation(m_currentDirection);
+            transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
+
+            m_animator.SetFloat("MoveSpeed", direction.magnitude);
+        }
+
+        JumpingAndLanding();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -120,82 +216,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         if (m_collisions.Count == 0) { m_isGrounded = false; }
     }
 
-    private void Update()
-    {
-/*UNITY_EDITOR
-        if (!m_jumpInput && Input.GetButton("Jump")) 
-        {
-            m_jumpInput = true;
-        }*/
+   
 
-        if (!m_jumpInput && playerInput.actions["Jump"].triggered)
-        {
-            m_jumpInput = true;
-        }
-
-
-        
-
-    }
-
-    private void FixedUpdate()
-    {
-        m_animator.SetBool("Grounded", m_isGrounded);
-
-        
-        DirectUpdate();
-        
-
-        m_wasGrounded = m_isGrounded;
-        m_jumpInput = false;
-    }
-
-    private void DirectUpdate()
-    {
-        
-
-//#if UNITY_EDITOR
-
-       // float v = Input.GetAxis("Vertical");
-       // float h = Input.GetAxis("Horizontal");
-//#else
-        Vector2 input = playerInput.actions["Move"].ReadValue<Vector2>();
-
-        float v = input.y;
-        float h = input.x;
-//#endif
-
-
-
-        Transform camera = Camera.main.transform;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            v *= m_walkScale;
-            h *= m_walkScale;
-        }
-
-        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
-        m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
-
-        Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;
-
-        float directionLength = direction.magnitude;
-        direction.y = 0;
-        direction = direction.normalized * directionLength;
-
-        if (direction != Vector3.zero)
-        {
-            m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * m_interpolation);
-
-            transform.rotation = Quaternion.LookRotation(m_currentDirection);
-            transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
-
-            m_animator.SetFloat("MoveSpeed", direction.magnitude);
-        }
-
-        JumpingAndLanding();
-    }
+   
 
     private void JumpingAndLanding()
     {

@@ -18,6 +18,7 @@ public class PowerUpScript : MonoBehaviour
     void Start()
     {
         transform.Rotate(-45f, 0, 0);
+        gameObject.LeanScale(new Vector3(70f, 70f, 70f), 0.9f).setLoopPingPong();
         destroyCoroutine = destroyLifetime();
         powerUpSpawner = GameObject.FindGameObjectWithTag("PowerUpSpawner");
         player = GameObject.FindGameObjectWithTag("Player");

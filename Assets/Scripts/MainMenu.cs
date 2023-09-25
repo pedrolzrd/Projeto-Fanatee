@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEditorInternal;
 
 public class MainMenu : MonoBehaviour
 {
+    public Animator transition;
 
     public GameObject gameModeUi;
 
@@ -15,6 +17,8 @@ public class MainMenu : MonoBehaviour
     public GameObject playerSelection;
 
     [SerializeField]GameObject creditsMenu;
+
+    public float transitionTime = 1;
 
     public void openPopup()
     {
@@ -34,6 +38,15 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
+        StartCoroutine(LoadGame());
+    }
+
+    IEnumerator LoadGame()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
         SceneManager.LoadScene("Game");
     }
 

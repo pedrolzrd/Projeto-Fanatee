@@ -18,6 +18,7 @@ public class PowerUpTime : MonoBehaviour
 
     void Start()
     {
+        gameObject.LeanScale(new Vector3(70f, 70f, 70f), 0.9f).setLoopPingPong();
         transform.Rotate(-45, 0, 0);
         timePoints = GameObject.FindGameObjectWithTag("timer");
         spawner = GameObject.FindGameObjectWithTag("spawnerTime");
