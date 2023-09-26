@@ -158,8 +158,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4179975815855237026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ecde0ddb82fb04b9b5588d1ba4fb41, type: 3}
+  m_Script: {fileID: 11500000, guid: 55c9c46ff6aa64743ae143ee20edf89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 7120015396635017569}
+  gameModeUi: {fileID: 0}
+  gameModes: {fileID: 0}
+  playerSelection: {fileID: 0}
+  creditsMenu: {fileID: 0}
   transitionTime: 1
