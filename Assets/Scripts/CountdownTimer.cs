@@ -50,7 +50,7 @@ public class CountdownTimer : MonoBehaviour
         {
             countDownUi.SetActive(true);
             player.SetActive(false);
-            Debug.Log("Fim da contagem");
+            //Debug.Log("Fim da contagem");
 
             finalScoreP1.text = scoreP1.text;
             finalScoreP2.text = scoreP2.text;
@@ -61,7 +61,7 @@ public class CountdownTimer : MonoBehaviour
             crownP1.SetActive(pointsP1 > 0 && pointsP1 >= pointsP2);
             crownP2.SetActive(pointsP2 > 0 && pointsP2 >= pointsP1);
 
-            totalPointsText.text = totalPoints.ToString() + "/" + totalAwsers;
+            //totalPointsText.text = totalPoints.ToString() + "/" + totalAwsers;
             enabled = false;
 
             Time. timeScale = 0;           

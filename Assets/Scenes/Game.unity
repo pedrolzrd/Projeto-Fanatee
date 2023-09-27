@@ -12541,12 +12541,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb235c8f7d05e3469d90798dba30bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSpawn: 2.5
+  nextSpawn: 5
   maxSpawnValueX: 24
   minSpawnValueX: -24
   maxSpawnValueZ: 21
   minSpawnValueZ: -14
-  maxSpawned: 3
+  maxSpawned: 20
   spawned: 0
   powerUp: {fileID: 6575529319045127480, guid: b56d73f0edbf4c644bd9d4c930e0e00c, type: 3}
   col:
@@ -26830,12 +26830,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5027c351ab7e4e84db38c48853bd5974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSpawn: 2
+  nextSpawn: 30
   maxSpawnValueX: 24
   minSpawnValueX: -24
   maxSpawnValueZ: 21
   minSpawnValueZ: -14
-  maxSpawned: 40
+  maxSpawned: 10
   spawned: 0
   powerUp: {fileID: 4877517531672990365, guid: 2e80be325689b6e41aff374b45d8d56f, type: 3}
   col:
