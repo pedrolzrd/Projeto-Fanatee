@@ -418,6 +418,34 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""DisableControlMap"",
+            ""id"": ""f4b6cd59-8cc7-49b8-a68f-54728f01df10"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""825318dc-3b00-4402-83d9-a08116076981"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8e6c9857-0343-437e-a7b5-16e605d0cee0"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -434,6 +462,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player2Actions_Move = m_Player2Actions.FindAction("Move", throwIfNotFound: true);
         m_Player2Actions_Jump = m_Player2Actions.FindAction("Jump", throwIfNotFound: true);
         m_Player2Actions_DropNumber = m_Player2Actions.FindAction("DropNumber", throwIfNotFound: true);
+        // DisableControlMap
+        m_DisableControlMap = asset.FindActionMap("DisableControlMap", throwIfNotFound: true);
+        m_DisableControlMap_Newaction = m_DisableControlMap.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -631,6 +662,52 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public Player2ActionsActions @Player2Actions => new Player2ActionsActions(this);
+
+    // DisableControlMap
+    private readonly InputActionMap m_DisableControlMap;
+    private List<IDisableControlMapActions> m_DisableControlMapActionsCallbackInterfaces = new List<IDisableControlMapActions>();
+    private readonly InputAction m_DisableControlMap_Newaction;
+    public struct DisableControlMapActions
+    {
+        private @Controls m_Wrapper;
+        public DisableControlMapActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_DisableControlMap_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_DisableControlMap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DisableControlMapActions set) { return set.Get(); }
+        public void AddCallbacks(IDisableControlMapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DisableControlMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DisableControlMapActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        private void UnregisterCallbacks(IDisableControlMapActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        public void RemoveCallbacks(IDisableControlMapActions instance)
+        {
+            if (m_Wrapper.m_DisableControlMapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDisableControlMapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DisableControlMapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DisableControlMapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DisableControlMapActions @DisableControlMap => new DisableControlMapActions(this);
     public interface IPlayer1ActionsActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -644,5 +721,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDropNumber(InputAction.CallbackContext context);
+    }
+    public interface IDisableControlMapActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

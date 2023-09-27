@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
-
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,6 +18,10 @@ public class MainMenu : MonoBehaviour
 
     public float transitionTime = 1;
 
+    public GameObject timeisOverMenu;
+
+    public GameObject crossfade;
+
     public void openPopup()
     {
         gameModeUi.SetActive(true);
@@ -27,7 +31,6 @@ public class MainMenu : MonoBehaviour
     {
         gameModes.SetActive(false);
         playerSelection.SetActive(true);
-
     }
 
     public void closePopup()
@@ -48,11 +51,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-    public void PlayGameTeams()
-    {
-        SceneManager.LoadScene("Game Teams");
-    }
-
     public void backToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -64,7 +62,7 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(true);
     }
 
- 
+    
 
     public void Credits()
     {

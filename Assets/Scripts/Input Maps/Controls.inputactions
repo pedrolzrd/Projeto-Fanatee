@@ -396,6 +396,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "DisableControlMap",
+            "id": "f4b6cd59-8cc7-49b8-a68f-54728f01df10",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "825318dc-3b00-4402-83d9-a08116076981",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8e6c9857-0343-437e-a7b5-16e605d0cee0",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

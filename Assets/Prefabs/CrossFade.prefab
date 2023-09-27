@@ -99,7 +99,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8480296938056698121}
   - component: {fileID: 7120015396635017569}
-  - component: {fileID: 1419374844469325963}
   m_Layer: 5
   m_Name: CrossFade
   m_TagString: Untagged
@@ -149,21 +148,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1419374844469325963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4179975815855237026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55c9c46ff6aa64743ae143ee20edf89a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transition: {fileID: 7120015396635017569}
-  gameModeUi: {fileID: 0}
-  gameModes: {fileID: 0}
-  playerSelection: {fileID: 0}
-  creditsMenu: {fileID: 0}
-  transitionTime: 1

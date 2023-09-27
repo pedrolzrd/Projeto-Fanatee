@@ -1269,7 +1269,7 @@ RectTransform:
   - {fileID: 7859012188653020634}
   - {fileID: 1171743683}
   - {fileID: 516354262}
-  - {fileID: 580971869}
+  - {fileID: 5693132823259295400}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1317,16 +1317,6 @@ RectTransform:
   m_AnchoredPosition: {x: 32, y: -80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &580971869 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8480296938056698121, guid: a69232bd7f5923d48a6333b5ba586a47, type: 3}
-  m_PrefabInstance: {fileID: 4229446306437752737}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &580971870 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7120015396635017569, guid: a69232bd7f5923d48a6333b5ba586a47, type: 3}
-  m_PrefabInstance: {fileID: 4229446306437752737}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &662190526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,12 +2128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c9c46ff6aa64743ae143ee20edf89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 580971870}
+  transition: {fileID: 6376361801007851200}
   gameModeUi: {fileID: 1171743682}
   gameModes: {fileID: 257231097}
   playerSelection: {fileID: 890783242}
   creditsMenu: {fileID: 0}
   transitionTime: 1
+  timeisOverMenu: {fileID: 0}
+  fadeImage: {fileID: 0}
 --- !u!1 &1276107269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,12 +4183,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c9c46ff6aa64743ae143ee20edf89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 580971870}
+  transition: {fileID: 6376361801007851200}
   gameModeUi: {fileID: 1171743682}
   gameModes: {fileID: 0}
   playerSelection: {fileID: 0}
   creditsMenu: {fileID: 516354261}
   transitionTime: 1
+  timeisOverMenu: {fileID: 0}
+  fadeImage: {fileID: 0}
 --- !u!114 &4738655299397370929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4347,6 +4341,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!224 &5693132823259295400 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8480296938056698121, guid: a69232bd7f5923d48a6333b5ba586a47, type: 3}
+  m_PrefabInstance: {fileID: 4229446306437752737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!222 &5889143050391774479
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4385,6 +4384,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6376361801007851200 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7120015396635017569, guid: a69232bd7f5923d48a6333b5ba586a47, type: 3}
+  m_PrefabInstance: {fileID: 4229446306437752737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6791862014564762359
 MonoBehaviour:
   m_ObjectHideFlags: 0
