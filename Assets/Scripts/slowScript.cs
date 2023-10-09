@@ -42,9 +42,9 @@ public class slowScript : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Vector3 size = new Vector3(5, 1, 5);
-        Gizmos.DrawWireCube(transform.position, size);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Vector3 size = new Vector3(5, 1, 5);
+    //    Gizmos.DrawWireCube(transform.position, size);
+    //}
 }
