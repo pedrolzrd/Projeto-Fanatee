@@ -20,7 +20,7 @@ public class Number : MonoBehaviour
 
     private void Start()
     {
-        gameObject.LeanScale(new Vector3(70f, 70f, 70f), 0.9f).setLoopPingPong();  
+        gameObject.LeanScale(new Vector3(70f, 70f, 70f), 0.9f).setLoopPingPong();
         transform.Rotate(-45f, 0, 0);
         destroyCoroutine = destroyLifetime();
         numberSpawner = GameObject.FindGameObjectWithTag("Spawner");
@@ -35,18 +35,18 @@ public class Number : MonoBehaviour
 
     private void Update()
     {
-        if (colected == true) //Faz o numero ficar acima da cabeça do player.
+        if (colected == true) //Faz o numero ficar acima da cabeï¿½a do player.
         {
             transform.position = new Vector3(player.transform.position.x, 4, player.transform.position.z);
         }
 
-        if (colectedByPlayer2 == true) //Faz o numero ficar acima da cabeça do player.
+        if (colectedByPlayer2 == true) //Faz o numero ficar acima da cabeï¿½a do player.
         {
             transform.position = new Vector3(player2.transform.position.x, 4, player2.transform.position.z);
         }
 
 
-        // Implementaçao do Drop Number.
+        // Implementaï¿½ao do Drop Number.
         if (Input.GetKeyDown(KeyCode.F) && colected == true)
         {
             Destroy(gameObject);
@@ -59,33 +59,36 @@ public class Number : MonoBehaviour
             player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = false;
         }
 
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-
         //Mecanica de Coletar o Numero. 
         if (other.CompareTag("Player 2") && player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 == false)
         {
+            colected = false;
             colectedByPlayer2 = true;
             player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = true;
-            this.GetComponent<AudioSource>().Play();
-            StopCoroutine(destroyCoroutine);
-            //StartCoroutine(colect());
-        } 
-
-        if (other.CompareTag("Player") && player.GetComponent<SimpleSampleCharacterControl>().colected == false)
-        {
-            colected = true;
-            player.GetComponent<SimpleSampleCharacterControl>().colected = true;
+            player.GetComponent<SimpleSampleCharacterControl>().colected = false;
             this.GetComponent<AudioSource>().Play();
             StopCoroutine(destroyCoroutine);
             //StartCoroutine(colect());
         }
 
-        
-        
+        if (other.CompareTag("Player") && player.GetComponent<SimpleSampleCharacterControl>().colected == false)
+        {
+            colected = true;
+            colectedByPlayer2 = false;
+            player.GetComponent<SimpleSampleCharacterControl>().colected = true;
+            player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = false;
+            this.GetComponent<AudioSource>().Play();
+            StopCoroutine(destroyCoroutine);
+            //StartCoroutine(colect());
+        }
+
+
+
     }
 
     IEnumerator destroyLifetime()
