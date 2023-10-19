@@ -35,12 +35,12 @@ public class slowScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            player.GetComponent<CharacterControl>().m_moveSpeed *= multiplicador;
+            player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = player.GetComponent<SimpleSampleCharacterControl>().initialSpeed;
         }
 
         if (other.CompareTag("Player 2"))
         {
-            player2.GetComponent<CharacterControl>().m_moveSpeed *= multiplicador;
+            player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = player2.GetComponent<SimpleSampleCharacterControl>().initialSpeed ;
         }
     }
 

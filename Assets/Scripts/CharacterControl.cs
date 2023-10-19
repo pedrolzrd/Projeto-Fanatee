@@ -25,7 +25,8 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     public GameObject powerUpEffect;
 
-    [SerializeField] public float m_moveSpeed = 7.5f;
+    [SerializeField] public float initialSpeed;
+    [HideInInspector] public float m_moveSpeed;
     
     [SerializeField] private float m_jumpForce = 4;
 
@@ -63,7 +64,8 @@ public class CharacterControl : MonoBehaviour
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         id = Random.Range(1, 5);
-        
+
+        m_moveSpeed = initialSpeed;
     }
 
     private void OnEnable()
