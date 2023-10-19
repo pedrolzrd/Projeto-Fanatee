@@ -3,7 +3,8 @@ guid: 213f19bbe225a944e82bcdaff224e7b9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - powerUpEffectPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

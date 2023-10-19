@@ -54,7 +54,7 @@ public class Number : MonoBehaviour
             player2.GetComponent<CharacterControl>().colectedByPlayer2 = true;
             this.GetComponent<AudioSource>().Play();
             StopCoroutine(destroyCoroutine);
-            //StartCoroutine(colect());
+
         }
 
         if (other.CompareTag("Player") && player.GetComponent<CharacterControl>().colected == false)
@@ -63,7 +63,7 @@ public class Number : MonoBehaviour
             player.GetComponent<CharacterControl>().colected = true;
             this.GetComponent<AudioSource>().Play();
             StopCoroutine(destroyCoroutine);
-            //StartCoroutine(colect());
+
         }
     }
 

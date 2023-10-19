@@ -225,6 +225,7 @@ public class CharacterControl : MonoBehaviour
         if (m_collisions.Count == 0) { m_isGrounded = false; }
     }
    
+    //Metodo que controle o pulo e o pouso.
     private void JumpingAndLanding()
     {
         bool jumpCooldownOver = (Time.time - m_jumpTimeStamp) >= m_minJumpInterval;
