@@ -1214,6 +1214,7 @@ MonoBehaviour:
   powerUpColectedByPlayer2: 0
   isAdding: 0
   powerUpEffect: {fileID: 842414531027814487, guid: 89e4672ee09f56a4a9169e260c819e77, type: 3}
+  initialSpeed: 7
   m_moveSpeed: 9
   m_jumpForce: 6
   m_animator: {fileID: 1228340594999993951}
