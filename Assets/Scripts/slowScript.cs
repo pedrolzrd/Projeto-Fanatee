@@ -10,7 +10,9 @@ public class slowScript : MonoBehaviour
     [SerializeField]
     float vel;
 
-    private void Awake()
+    [SerializeField]
+    float multiplicador;
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player2 = GameObject.FindGameObjectWithTag("Player 2");
@@ -20,12 +22,12 @@ public class slowScript : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed /= 2;
+            player.GetComponent<CharacterControl>().m_moveSpeed /= multiplicador;
         }
 
         if (other.CompareTag("Player 2"))
         {
-            player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed /= 2;
+            player2.GetComponent<CharacterControl>().m_moveSpeed /= multiplicador;
         }
     }
 
@@ -33,12 +35,12 @@ public class slowScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            player.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = player.GetComponent<SimpleSampleCharacterControl>().initialSpeed;
+            player.GetComponent<CharacterControl>().m_moveSpeed = player.GetComponent<CharacterControl>().initialSpeed;
         }
 
         if (other.CompareTag("Player 2"))
         {
-            player2.GetComponent<SimpleSampleCharacterControl>().m_moveSpeed = player2.GetComponent<SimpleSampleCharacterControl>().initialSpeed ;
+            player2.GetComponent<CharacterControl>().m_moveSpeed = player2.GetComponent<CharacterControl>().initialSpeed ;
         }
     }
 

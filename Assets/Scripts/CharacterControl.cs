@@ -2,25 +2,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SimpleSampleCharacterControl : MonoBehaviour
+public class CharacterControl : MonoBehaviour
 {
     PlayerInput playerInput;
 
     private Controls controls;
 
-    
+    public GameObject number;
 
-    [HideInInspector]
+
+    private float v, h;
+
     public int id;
+
     public bool colected = false;
     public bool colectedByPlayer2 = false;
     public bool powerUpColected = false;
     public bool powerUpColectedByPlayer2 = false;
 
     public bool isAdding;
-
-    [SerializeField] private InputActionReference actionReference;
-
 
     [SerializeField]
     public GameObject powerUpEffect;
@@ -33,7 +33,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     [SerializeField] private Animator m_animator = null;
     [SerializeField] private Rigidbody m_rigidBody = null;
 
-    
+
 
     private float m_currentV = 0;
     private float m_currentH = 0;
@@ -58,7 +58,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         controls = new Controls();
-
         controls.Player1Actions.SomaStart.performed += x => AddingPressed();
         controls.Player1Actions.SomaFinished.performed += x => AddingReleased();
 
@@ -71,7 +70,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Enable();
+        controls.Enable(); 
     }
 
     private void OnDisable()
@@ -81,18 +80,34 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private void Update()
     {
-        /*UNITY_EDITOR
-                if (!m_jumpInput && Input.GetButton("Jump")) 
-                {
-                    m_jumpInput = true;
-                }*/
-
         if (!m_jumpInput && playerInput.actions["Jump"].triggered)
         {
             m_jumpInput = true;
         }
 
 
+        
+        if (playerInput.actions["DropNumber"].triggered && colected == true)
+        {
+            number = GameObject.FindGameObjectWithTag("CollectedP1");
+            Destroy(number);
+            colected = false;
+        }
+
+        if (playerInput.actions["DropNumber"].triggered && powerUpColectedByPlayer2 == true)
+        {
+            number = GameObject.FindGameObjectWithTag("CollectedP2");
+            Destroy(number);
+            colected = false;
+        }
+
+
+
+        /*if (Input.GetKeyDown(KeyCode.RightShift) && colectedByPlayer2 == true)
+        {
+            Destroy(gameObject);
+            player2.GetComponent<CharacterControl>().colectedByPlayer2 = false;
+        }*/
 
     }
 
@@ -121,17 +136,10 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private void DirectUpdate()
     {
 
-
-        //#if UNITY_EDITOR
-
-        // float v = Input.GetAxis("Vertical");
-        // float h = Input.GetAxis("Horizontal");
-        //#else
         Vector2 input = playerInput.actions["Move"].ReadValue<Vector2>();
 
-        float v = input.y;
-        float h = input.x;
-        //#endif
+        v = input.y;
+        h = input.x;
 
         Transform camera = Camera.main.transform;
 
@@ -159,7 +167,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
             m_animator.SetFloat("MoveSpeed", direction.magnitude);
         }
-
         JumpingAndLanding();
     }
 
@@ -217,11 +224,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         }
         if (m_collisions.Count == 0) { m_isGrounded = false; }
     }
-
    
-
-   
-
+    //Metodo que controle o pulo e o pouso.
     private void JumpingAndLanding()
     {
         bool jumpCooldownOver = (Time.time - m_jumpTimeStamp) >= m_minJumpInterval;
@@ -242,4 +246,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             m_animator.SetTrigger("Jump");
         }
     }
+
+    
 }

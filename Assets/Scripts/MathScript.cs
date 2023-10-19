@@ -21,8 +21,10 @@ public class MathScript : MonoBehaviour
     public int operationsLength;
 
     private int[] results = {5, 4, 3, 8, 3, 7, 5, 9, 0, 0, 7, 9, 9, 2};
+
     GameObject player;
     GameObject player2;
+
     [SerializeField]
     AudioSource rightSound;
     [SerializeField]
@@ -37,11 +39,12 @@ public class MathScript : MonoBehaviour
     [SerializeField]
     GameObject coin;
 
+
+
     void Start()
     {
         operationsLength = operations.Length;
-        player = GameObject.FindGameObjectWithTag("Player");
-        player2 = GameObject.FindGameObjectWithTag("Player 2");
+        
         actualOperationIndex = 0;
         operationText.text = string.Format(operations[actualOperationIndex]);
         correctAnwsers = 0;
@@ -60,16 +63,22 @@ public class MathScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.tag == "Number")
+        if(other.CompareTag("CollectedP1") || other.CompareTag("CollectedP2"))
         {
+            player = GameObject.FindGameObjectWithTag("Player");
+            player2 = GameObject.FindGameObjectWithTag("Player 2");
+
+
             Number number = other.gameObject.GetComponent<Number>();
             Destroy(other.gameObject);
 
-            bool wasCollectedByPlayer1 = player.GetComponent<SimpleSampleCharacterControl>().colected;
+            bool wasCollectedByPlayer1 = player.GetComponent<CharacterControl>().colected;
+            print(wasCollectedByPlayer1);
 
-            player.GetComponent<SimpleSampleCharacterControl>().colected = false;
-            player2.GetComponent<SimpleSampleCharacterControl>().colectedByPlayer2 = false;
-                
+            
+            player.GetComponent<CharacterControl>().colected = false;
+            player2.GetComponent<CharacterControl>().colectedByPlayer2 = false;
+
             if (number.value == results[actualOperationIndex])
             {
                 print("acertou");
