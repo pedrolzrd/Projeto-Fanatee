@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.29337198, g: 0.7090955, b: 0.8314951, a: 1}
+  m_IndirectSpecularColor: {r: 0.29376602, g: 0.7092811, b: 0.832252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2302,10 +2302,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7956971
-  m_Height: 8.133526
+  m_Radius: 0.663124
+  m_Height: 8.195063
   m_Direction: 1
-  m_Center: {x: 0.00636667, y: 4.066763, z: -0.35304582}
+  m_Center: {x: -0.39540362, y: 1.0946666, z: -0.33881858}
 --- !u!23 &140729865
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34945,6 +34945,7 @@ MonoBehaviour:
   isAdding: 0
   actionReference: {fileID: 0}
   powerUpEffect: {fileID: 1246707596}
+  initialSpeed: 7.5
   m_moveSpeed: 9
   m_jumpForce: 6
   m_animator: {fileID: 1865825601}
@@ -50429,6 +50430,7 @@ MonoBehaviour:
   isAdding: 0
   actionReference: {fileID: 0}
   powerUpEffect: {fileID: 346180122132815997}
+  initialSpeed: 7.5
   m_moveSpeed: 9
   m_jumpForce: 6
   m_animator: {fileID: 5780872183032320639}
