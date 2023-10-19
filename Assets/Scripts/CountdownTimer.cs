@@ -25,9 +25,6 @@ public class CountdownTimer : MonoBehaviour
     private float totalTime = 120f; // 300f 5 minutos em segundos
     public float timeLeft;
 
-    PlayerInput p1;
-    PlayerInput p2;
-
     void Start()
     {
         timeLeft = totalTime;
@@ -35,9 +32,6 @@ public class CountdownTimer : MonoBehaviour
         numbercollector = GameObject.FindGameObjectWithTag("NumberCollector");
         player = GameObject.FindGameObjectWithTag("Player");
         player2 = GameObject.FindGameObjectWithTag("Player 2");
-
-        p1 = player.GetComponent<PlayerInput>();    
-        p2 = player2.GetComponent<PlayerInput>();   
 
     }
 
@@ -63,9 +57,6 @@ public class CountdownTimer : MonoBehaviour
             countDownUi.SetActive(true);
             //player.SetActive(false);
             controlsHud.SetActive(false);
-
-            p1.SwitchCurrentActionMap("DisableControlMap");
-            p2.SwitchCurrentActionMap("DisableControlMap");
 
             //Debug.Log("Fim da contagem");
 

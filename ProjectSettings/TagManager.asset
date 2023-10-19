@@ -16,6 +16,8 @@ TagManager:
   - timer
   - spawnerTime
   - ClockEffect
+  - CollectedP1
+  - CollectedP2
   layers:
   - Default
   - TransparentFX
