@@ -114,4 +114,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    public void QuitMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
