@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ public class PlayerSpawnManager : MonoBehaviour
     public GameObject cutscene;
     public GameObject numberCollector;
 
+    public TextMeshProUGUI pressAtoJoinText;
     void OnPlayerJoined(PlayerInput playerInput)
     {
         Debug.Log("PlayerInput ID: " + playerInput.playerIndex);
@@ -50,6 +52,9 @@ public class PlayerSpawnManager : MonoBehaviour
             countDowntimer.SetActive(true);
             slowTerrain.SetActive(true);    
             numberCollector.SetActive(true);
+
+            pressAtoJoinText.gameObject.SetActive(false);
+
         }
 
     }

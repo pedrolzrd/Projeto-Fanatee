@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerDetails : MonoBehaviour
 {
     public int playerID;
+
     public Vector3 startPos;
 
     public GameObject circleImage;

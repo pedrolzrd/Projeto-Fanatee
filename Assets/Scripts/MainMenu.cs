@@ -33,8 +33,7 @@ public class MainMenu : MonoBehaviour
     public Button twoPlayerButton;
 
     [Header("Event System")]
-    public MultiplayerEventSystem mEventSystem; //Usado pra controlar principalmente os botoes. 
-    
+    public MultiplayerEventSystem mEventSystem; //Usado pra controlar principalmente os botoes.  
 
     public void OpenGameModeMenu() //Abre o Menu com as opções FREE FOR ALL E COOP
     {
