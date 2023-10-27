@@ -94,21 +94,12 @@ public class CharacterControl : MonoBehaviour
             colected = false;
         }
 
-        if (playerInput.actions["DropNumber"].triggered && powerUpColectedByPlayer2 == true)
+        if (playerInput.actions["DropNumber"].triggered && colectedByPlayer2 == true)
         {
             number = GameObject.FindGameObjectWithTag("CollectedP2");
             Destroy(number);
-            colected = false;
+            colectedByPlayer2 = false;
         }
-
-
-
-        /*if (Input.GetKeyDown(KeyCode.RightShift) && colectedByPlayer2 == true)
-        {
-            Destroy(gameObject);
-            player2.GetComponent<CharacterControl>().colectedByPlayer2 = false;
-        }*/
-
     }
 
     private void AddingPressed()

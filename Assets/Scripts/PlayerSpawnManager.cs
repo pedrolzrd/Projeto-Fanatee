@@ -20,7 +20,10 @@ public class PlayerSpawnManager : MonoBehaviour
     public GameObject powerupSpawner;
     public GameObject coin;
     public GameObject countDowntimer;
+    [Space(15)] // 15 pixels of spacing here.
     public GameObject slowTerrain;
+    public GameObject slowTerrain2;
+    public GameObject slowTerrain3;
     public GameObject cutscene;
     public GameObject numberCollector;
 
@@ -50,7 +53,12 @@ public class PlayerSpawnManager : MonoBehaviour
             numberSpawner.SetActive(true); 
             coin.SetActive(true);
             countDowntimer.SetActive(true);
-            slowTerrain.SetActive(true);    
+
+            /*slowTerrain.SetActive(true);
+            slowTerrain2.SetActive(true);
+            slowTerrain3.SetActive(true);*/
+
+
             numberCollector.SetActive(true);
 
             pressAtoJoinText.gameObject.SetActive(false);
